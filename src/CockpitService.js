@@ -216,6 +216,7 @@ module.exports = class CockpitService {
           return
         }
 
+        path = path.split('/').filter((v) => v.length > 0).slice(1).join('/')
         if (path.startsWith('/')) {
           path = `${this.baseUrl}${path}`
         } else if (!path.startsWith('http')) {
@@ -236,6 +237,7 @@ module.exports = class CockpitService {
 
           trimGalleryImageField(galleryImageField)
 
+          path = path.split('/').filter((v) => v.length > 0).slice(1).join('/')
           if (path.startsWith('/')) {
             path = `${this.baseUrl}${path}`
           } else if (!path.startsWith('http')) {
